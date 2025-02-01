@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Navbar with Background Image</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    nav {
+      background-color: white;
+      color: #333;
+      padding: 20px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+ position: sticky; /* Make the navbar sticky */
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 1000; /* Ensure it stays above other content */
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #333;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      position: relative;
+      display: inline-block;
+      transition: color 0.3s;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #1565C0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    nav ul li a:hover {
+      color: #1565C0;
+    }
+
+     /* Dropdown Menu */
+     .dropdown-content, .sub-dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      z-index: 1000;
+      min-width: 200px;
+      left: 0;
+      top: 100%;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .sub-dropdown:hover .sub-dropdown-content {
+      display: block;
+      position: absolute;
+      left: 100%;
+      top: 0;
+    }
+
+    .dropdown-content a, .sub-dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .dropdown-content a:hover, .sub-dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+
+    /* Mobile Menu Styles */
+    #menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    #mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: white;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 75%;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 1000;
+    }
+
+    #mobile-menu.show {
+      display: flex;
+      transform: translateX(0);
+    }
+
+    #mobile-menu a {
+      color: #333;
+      text-decoration: none;
+      padding: 15px 0;
+      font-size: 20px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    #mobile-menu a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #1565C0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    #mobile-menu a:hover::after {
+      width: 100%;
+    }
+
+    #mobile-menu a:hover {
+      color: #1565C0;
+    }
+
+    /* Close Button Styles */
+    #close-btn {
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 28px;
+      align-self: flex-end;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    .mobile-dropdown-content {
+      display: none;
+      padding-left: 20px;
+    }
+
+    .mobile-dropdown.active .mobile-dropdown-content {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      #menu-btn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+
+      #menu-btn {
+        display: block;
+      }
+
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: none;
+      }
+
+      .dropdown.active .dropdown-content {
+        display: block;
+      }
+    }
+
+    /* Background Image Section */
+    .background-section {
+      position: relative;
+      width: 100%;
+      height: 100vh; /* Full viewport height */
+      background-image: url('./assets/slider1.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    .background-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    }
+
+    .background-content {
+      position: relative;
+      z-index: 2;
+      max-width: 90%; /* Ensure content doesn't overflow on small screens */
+    }
+
+    .background-content h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .background-content p {
+      font-size: 1.5rem;
+      margin: 10px 0 20px;
+    }
+
+    .background-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+    }
+
+    .background-buttons a {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: none;
+      padding: 15px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-decoration: none; /* Remove underline */
+    }
+
+    .background-buttons a:hover {
+      background-color: #1565C0; /* Blue background on hover */
+      color: white; /* White text on hover */
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .background-content h1 {
+        font-size: 2rem; /* Smaller font size for smaller screens */
+      }
+
+      .background-content p {
+        font-size: 1.2rem; /* Smaller font size for smaller screens */
+      }
+
+      .background-buttons {
+        gap: 10px; /* Reduce gap between buttons */
+      }
+
+      .background-buttons a {
+        padding: 10px 20px; /* Smaller padding for buttons */
+        font-size: 0.9rem; /* Smaller font size for buttons */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .background-content h1 {
+        font-size: 1.5rem; /* Even smaller font size for very small screens */
+      }
+
+      .background-content p {
+        font-size: 1rem; /* Even smaller font size for very small screens */
+      }
+
+      .background-buttons a {
+        padding: 8px 16px; /* Smaller padding for very small screens */
+        font-size: 0.8rem; /* Smaller font size for very small screens */
+      }
+    }
+    .insurance-section {
+  width: 90%;
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+}
+
+.title {
+  color: #0079c1;
+  font-size: 2.5rem; /* Default size for large screens */
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.3rem; /* Default size for large screens */
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.languages {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.languages span {
+  color: #0079c1;
+}
+
+.content {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  text-align: justify;
+  color: #555;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.languages-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap; /* Ensure wrapping on smaller screens */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.language-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.language-image img {
+  width: 100%; /* Maintain rectangular dimensions */
+  transition: transform 0.3s ease;
+}
+
+.language-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.quote {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #444;
+  padding-top: 15px;
+}
+
+.highlight {
+  color: #0079c1;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 2.2rem; /* Adjust heading size for tablets */
+  }
+
+  .subtitle {
+    font-size: 1.1rem; /* Adjust subtitle size for tablets */
+  }
+
+  .content {
+    font-size: 1rem; /* Slightly smaller text for readability */
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8rem; /* Adjust heading size for landscape tablets */
+  }
+
+  .subtitle {
+    font-size: 1rem; /* Smaller subtitles for tablets */
+  }
+
+  .content {
+    font-size: 0.95rem; /* Smaller text for mobile screens */
+  }
+
+  .languages-box {
+    flex-direction: column; /* Stack languages vertically for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem; /* Compact heading size for smaller phones */
+  }
+
+  .subtitle {
+    font-size: 0.9rem; /* Adjust subtitle size for small phones */
+  }
+
+  .content {
+    font-size: 0.8rem;
+    text-align: left;
+  }
+
+  .quote {
+    font-size: 0.9rem; /* Compact quote size */
+  }
+}
+
+  .long-haul-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px;
+      background-color: #f9f9f9;
+    }
+  
+    .content-container {
+      flex: 1;
+      max-width: 600px;
+      padding: 20px;
+    }
+  
+    .heading {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 20px;
+    }
+  
+    .description {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      color: #555;
+    }
+  
+    .highlight-text {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      color: #0079c1;
+    }
+  
+    .cta-button {
+      background-color: #1565C0;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      padding: 15px 25px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+  
+    .cta-button:hover {
+      background-color: black;
+    }
+  
+    .image-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+  
+    .image-container img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    @media (max-width: 768px) {
+      .long-haul-section {
+        flex-direction: column;
+      }
+  
+      .content-container {
+        max-width: 100%;
+        text-align: center;
+      }
+  
+      .image-container img {
+        max-width: 100%;
+      }
+  
+      .cta-button {
+        width: 100%;
+      }
+    }
+     /* Testimonials Section */
+     .testimonials {
+            padding: 60px 20px;
+            background:#f9f9f9;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .testimonial-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            margin: 10px 0 15px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .client-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #0079c1;
+        }
+        .services-section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .services-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .services-section p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text readability */
+            z-index: 1;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            position: relative;
+            z-index: 2;
+            color: #fff;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .news-updates {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  position: relative;
+  color: #333;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.news-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.news-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.news-content {
+  padding: 15px;
+}
+
+.news-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1565C0;
+  margin: 10px 0;
+}
+
+.news-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.news-summary {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+ /* Slider Section */
+ .logo-section {
+      padding: 30px 15px;
+      text-align: center;
+      background-color: white;
+    }
+
+    .logo-title {
+      font-size: 2rem;
+      color: black;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .swiper {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .swiper-slide img {
+      max-width: 150px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .swiper-slide img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .logo-title {
+        font-size: 1.5rem;
+      }
+
+      .swiper-slide img {
+        max-width: 70px;
+      }
+    }
+ /* Floating Call Button */
+ .call-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #0079c1; /* Button background color */
+      color: white;
+      border-radius: 50px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+
+    .call-button:hover {
+      transform: scale(1.05); /* Slightly enlarge on hover */
+    }
+
+    .call-button i {
+      font-size: 20px;
+      margin-right: 10px; /* Space between icon and text */
+    }
+
+    .call-button span {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav data-aos="fade-down" data-aos-delay="500" data-aos-duration="1500">
+    <div class="logo">Continental Insurance Solutions Inc.</div>
+    <ul id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li class="dropdown">
+        <a href="#">Insurance Services</a>
+        <div class="dropdown-content">
+          <div class="sub-dropdown">
+            <a href="#">Auto, Home, and Personal Insurance</a>
+            <div class="sub-dropdown-content">
+              <a href="#">Auto Insurance</a>
+              <a href="#">Homeowners Insurance</a>
+              <a href="#">Renters Insurance</a>
+              <a href="#">Motorcycle Insurance</a>
+              <a href="#">Boat & Marine Insurance</a>
+              <a href="#">View All Personal</a>
+            </div>
+          </div>
+          <a href="#">Business Insurance</a>
+          <a href="#">Life Insurance</a>
+          <a href="#">Medicare Supplements</a>
+        </div>
+      </li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Support</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button id="menu-btn">&#9776;</button>
+    <div id="mobile-menu">
+      <button id="close-btn">&times;</button>
+      <a href="#">Home</a>
+      <div class="mobile-dropdown">
+        <a href="#">Insurance Services</a>
+        <div class="mobile-dropdown-content">
+          <div class="mobile-dropdown">
+            <a href="#">Auto, Home, and Personal Insurance</a>
+            <div class="mobile-dropdown-content">
+              <a href="#">Auto Insurance</a>
+              <a href="#">Homeowners Insurance</a>
+              <a href="#">Renters Insurance</a>
+              <a href="#">Motorcycle Insurance</a>
+              <a href="#">Boat & Marine Insurance</a>
+              <a href="#">View All Personal</a>
+            </div>
+          </div>
+          <a href="#">Business Insurance</a>
+          <a href="#">Life Insurance</a>
+          <a href="#">Medicare Supplements</a>
+        </div>
+      </div>      <a href="#">About</a>
+      <a href="#">Support</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+  <div class="call-button">
+    <i class="fas fa-phone"></i>
+    <span>Get Quote</span>
+  </div>
+
+  <!-- Background Image Section -->
+  <div class="background-section" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1500">
+    <div class="background-content">
+      <h1>COMMITTED TO EXCELLENCE</h1>
+      <p>All The Coverage You Need Under One Roof</p>
+      <div class="background-buttons">
+        <a href="#">COMMERCIAL AUTO</a>
+        <a href="#">HOME INSURANCE</a>
+        <a href="#">LONG-HAUL TRUCKING</a>
+        <a href="#">LIFE INSURANCE</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="insurance-section">
+    <h1 class="title">Continental Insurance Solutions Inc.</h1>
+    <p class="subtitle">
+      Specializes in <span class="highlight">commercial auto, auto, home, business, and life insurance</span>, as well as annuities.
+    </p>
+    <p class="subtitle">
+      Insuring <span class="highlight">Indianapolis</span> and all of <span class="highlight">Indiana</span> and <span class="highlight">Ohio</span>.
+    </p>
+    <p class="languages">
+      We speak <span>English, Hindi, and Punjabi</span> to better serve you!
+    </p>
+    <div class="content">
+      <p>
+        At Continental Insurance Solutions Inc., our priority is helping our customers find the best coverage in order to protect what matters most in life. As an independent agency, we work with a wide variety of top carriers to help you find the best coverage to suit your exact situation.
+      </p>
+      <p>
+        No matter your insurance needs, we can help you find the perfect policy to give you peace of mind without breaking the bank. <span class="highlight">Contact us for a quote today!</span>
+      </p>
+    </div>
+    <div class="languages-box">
+      <div class="language-image">
+        <img src="./assets/hindi.PNG" alt="Hindi">
+      </div>
+      <div class="language-image">
+        <img src="./assets/punjabi.PNG" alt="Punjabi">
+      </div>
+    </div>
+  </section>
+  <section class="long-haul-section">
+    <div class="content-container" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1500">
+      <h2 class="heading">Your Source For Long-Haul Trucking Coverage</h2>
+      <p class="description">
+        Continental Insurance Solutions Inc. specializes in long-haul trucking insurance for all of Indiana, California, Delaware, Georgia, Illinois, Kansas, Kentucky, Michigan, New Jersey, North Carolina, Ohio, Pennsylvania, Texas, and Virginia.
+      </p>
+      <p class="highlight-text">
+        Partnered with Great West Casualty Company, we provide coverages tailored to your business.
+      </p>
+      <button class="cta-button">Click Here To Learn More!</button>
+    </div>
+    <div class="image-container">
+      <img src="./assets/Truck.jpg" alt="Long-Haul Trucking" />
+    </div>
+  </section>
+  <div class="logo-section">
+    <h2 class="logo-title">Quotes from Multiple Companies</h2>
+    <!-- Swiper Container -->
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="./assets/logo1.PNG" alt="Logo 1"></div>
+        <div class="swiper-slide"><img src="./assets/logo2.png" alt="Logo 2"></div>
+        <div class="swiper-slide"><img src="./assets/logo3.png" alt="Logo 3"></div>
+        <div class="swiper-slide"><img src="./assets/logo4.png" alt="Logo 4"></div>
+        <div class="swiper-slide"><img src="./assets/logo5.png" alt="Logo 5"></div>
+        <div class="swiper-slide"><img src="./assets/logo6.png" alt="Logo 6"></div>
+        <div class="swiper-slide"><img src="./assets/logo7.png" alt="Logo 7"></div>
+        <div class="swiper-slide"><img src="./assets/logo8.png" alt="Logo 8"></div>
+        <div class="swiper-slide"><img src="./assets/logo9.png" alt="Logo 9"></div>
+        <div class="swiper-slide"><img src="./assets/logo10.PNG" alt="Logo 1"></div>
+
+        <div class="swiper-slide"><img src="./assets/logo11.PNG" alt="Logo 1"></div>
+        <div class="swiper-slide"><img src="./assets/logo12.png" alt="Logo 2"></div>
+        <div class="swiper-slide"><img src="./assets/logo13.png" alt="Logo 3"></div>
+        <div class="swiper-slide"><img src="./assets/logo14.png" alt="Logo 4"></div>
+        <div class="swiper-slide"><img src="./assets/logo15.png" alt="Logo 5"></div>
+        <div class="swiper-slide"><img src="./assets/logo16.png" alt="Logo 6"></div>
+        <div class="swiper-slide"><img src="./assets/logo17.png" alt="Logo 7"></div>
+        <div class="swiper-slide"><img src="./assets/logo18.png" alt="Logo 8"></div>
+        <div class="swiper-slide"><img src="./assets/logo19.png" alt="Logo 9"></div>
+      </div>
+    </div>
+  </div>
+
+      <!-- Testimonials Section -->
+      <section class="testimonials">
+        <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">
+            What Our Clients Say
+        </h2>
+        <div class="testimonial-container">
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                <p class="testimonial-text">
+                    "Absolutely the best salon experience I've ever had! The staff were
+                    friendly and professional. I felt pampered and relaxed. Highly
+                    recommend!"
+                </p>
+                <h4 class="client-name">– Sarah Johnson</h4>
+            </div>
+
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                <p class="testimonial-text">
+                    "A five-star service from start to finish! The atmosphere was
+                    luxurious, and the massage was perfect. Can't wait to return!"
+                </p>
+                <h4 class="client-name">– Emily Brown</h4>
+            </div>
+
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
+                <p class="testimonial-text">
+                    "The facial treatment left my skin glowing! The entire experience
+                    was serene and rejuvenating. Worth every penny."
+                </p>
+                <h4 class="client-name">– Michael Williams</h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1500">
+        <h2>Comprehensive Solutions For Your Needs</h2>
+        <p>Explore our wide range of insurance services designed to protect what matters most to you.</p>
+        <div class="services-grid">
+            <div class="service-card" style="background-image: url('./assets/truckloan.jpg');">
+                <h3>Commercial Auto</h3>
+                <p>Protect your business vehicles with our comprehensive commercial auto insurance plans.</p>
+            </div>
+            <div class="service-card" style="background-image: url('./assets/Autoloan.jpg');">
+                <h3>Auto Insurance</h3>
+                <p>Get reliable coverage for your personal vehicles with our auto insurance solutions.</p>
+            </div>
+            <div class="service-card" style="background-image: url('./assets/HomeLoan.jpg');">
+                <h3>Home Insurance</h3>
+                <p>Safeguard your home and belongings with our tailored home insurance policies.</p>
+            </div>
+            <div class="service-card" style="background-image: url('./assets/BusinessLoan.jpg');">
+                <h3>Business Insurance</h3>
+                <p>Secure your business with our customizable business insurance options.</p>
+            </div>
+            <div class="service-card" style="background-image: url('./assets/LifeLoan.jpg');">
+                <h3>Life Insurance</h3>
+                <p>Ensure financial security for your loved ones with our life insurance plans.</p>
+            </div>
+            <div class="service-card" style="background-image: url('./assets/anunties.jpg');">
+                <h3>Annuities</h3>
+                <p>Plan for a stable financial future with our annuity products.</p>
+            </div>
+        </div>
+        
+    </section>
+    <section class="news-updates">
+        <h2 class="section-title">Recent News & Updates</h2>
+        <div class="news-grid">
+          <article class="news-card">
+            <img src="./assets/Blog1.jpg" alt="Life Insurance" class="news-image" />
+            <div class="news-content">
+              <h3 class="news-title">When Should You Buy Life Insurance?</h3>
+              <p class="news-date">Posted: January 22, 2025</p>
+              <p class="news-summary">
+                There is no one-size-fits-all answer to the question, “When should I buy life insurance?” Let’s look at a few valuable guidelines to help you decide. Generally, buying a life insurance policy when you are young and healthy is recommended. There are multiple factors to consider in any case.  If You Buy Insurance While Young: Buying insurance when you are young and hopefully in good health...              </p>
+            </div>
+          </article>
+      
+          <article class="news-card">
+            <img src="./assets/Blog2.jpg" alt="E-commerce Insurance" class="news-image" />
+            <div class="news-content">
+              <h3 class="news-title">What You Should Know About E-commerce Business Insurance</h3>
+              <p class="news-date">Posted: January 19, 2025</p>
+              <p class="news-summary">
+                A brick-and-mortar establishment comes with known risks, but e-commerce has specific liabilities. Some are shared with traditional stores, but others are unique to online businesses. Business insurance tailored to meet the needs of your online operations can make all the difference when you face unexpected losses.  What is Covered in E-Commerce Business Insurance? E-commerce business insurance policies include:  General liability insurance Commercial property insurance Commercial...              </p>
+            </div>
+          </article>
+      
+          <article class="news-card">
+            <img src="./assets/Blog3.jpg" alt="Winter Storms" class="news-image" />
+            <div class="news-content">
+              <h3 class="news-title">How to Prepare Your Home for Winter Storms</h3>
+              <p class="news-date">Posted: January 16, 2025</p>
+              <p class="news-summary">
+                During the winter months, the weather can get pretty grim. Freezing icy conditions, blizzards, torrential rain, and wind events can test any structure, including your home. The best policy is to be prepared for the worst and hope for the best. Here are some ways you can protect your home from the damage of winter storms this year.  Indoor Checks and Safety Measures  Heating System...              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+      
+
+  <!-- Footer -->
+  <footer style="background-color: #333; color: white; text-align: center; padding: 10px;">
+    © 2025 Continental Insurance Solutions Inc. All rights reserved.
+  </footer>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+
+  <!-- JavaScript for Responsive Navbar -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('show');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('show');
+    });
+    document.querySelectorAll('.mobile-dropdown > a').forEach(item => {
+      item.addEventListener('click', function () {
+        this.parentElement.classList.toggle('active');
+      });
+    });
+     // Swiper Initialization
+     const swiper = new Swiper('.swiper', {
+      slidesPerView: 4, // Medium slider view
+      spaceBetween: 15, // Adjust spacing for medium size
+      loop: true,
+      autoplay: {
+        delay: 2500, // Auto-slide every 2.5 seconds
+      },
+      breakpoints: {
+        480: {
+          slidesPerView: 2, // Adjust for smaller screens
+        },
+        768: {
+          slidesPerView: 3, // Adjust for tablets
+        },
+      },
+    });
+    
+  AOS.init();
+
+  </script>
+
+</body>
+</html>
