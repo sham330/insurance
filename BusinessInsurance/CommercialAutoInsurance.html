@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <title>Insurance Page</title>
+    <title>Commercial Auto Insurance</title>
     <style>
         * {
             margin: 0;
@@ -137,14 +137,15 @@ nav ul li a:hover {
   height: 100%;
   background-color: white;
   padding: 20px;
-  z-index: 4;
-}
+  overflow-y: auto; /* Enables vertical scrolling */
+  z-index: 1000;}
 
 #mobile-menu a {
   display: block;
   color: #333;
   text-decoration: none;
   padding: 10px;
+  border-bottom: 2px solid #aaa;
 }
 #mobile-menu a:hover {
   border-bottom: 2px solid blue; /* Set the border to blue on hover */
@@ -598,7 +599,7 @@ color: #aaa;
       <li class="dropdown"><a href="#">About</a><div class="dropdown-content">
         <a href="../AboutUS/Review.html">Customer Reviews</a>
         <a href="../AboutUS/InsuranceCompanies.html">Insurance Companies</a>
-        <a href="#">Insurance Blogs</a>
+        <a href="../AboutUS/Blog.html">Insurance Blogs</a>
       </div></li>
       <li class="dropdown"><a href="#">Support</a><div class="dropdown-content">
         <a href="#">Online Billings & Payments</a>
@@ -609,26 +610,22 @@ color: #aaa;
         <a href="#">Annual Insurance Checklist</a>
         <a href="#">Insurance Resources</a>
       </div></li>
-      <li class="dropdown"><a href="#">Contact</a><div class="dropdown-content">
-        <a href="">Indianapolis Office</a>
-        <a href="">Secure Contact Form</a>
-        <a href="#">Refer a Friend</a>
+      <li class="dropdown"><a href="../Contacts/IndianapolisOffice.html">Contact</a><div class="dropdown-content">
+        <a href="../Contacts/IndianapolisOffice.html">Indianapolis Office</a>
+        <a href="../Contacts/SecureContactForm.html">Secure Contact Form</a>
+        <a href="../Contacts/Referal.html">Refer a Friend</a>
       </div></li>    </ul>
     <button id="menu-btn">&#9776;</button>
 
     <div id="mobile-menu">
       <button id="close-btn">&times;</button>
-      <a href="#">Home</a>
+      <a href="../index.html">Home</a>
       <div class="mobile-dropdown outer-dropdown">
-        <a href="#" class="dropdown-toggle"
-          >Insurance Services <span class="arrow">&#9660;</span></a
-        >
+        <a href="#" class="dropdown-toggle">Insurance Services <span class="arrow">&#9660;</span></a>
         <div class="mobile-dropdown-content">
           <div class="mobile-dropdown inner-dropdown">
-            <a href="#" class="dropdown-toggle"
-              >Auto, Home, and Personal Insurance
-              <span class="arrow1">&#9660;</span></a
-            >
+            <a href="#" class="dropdown-toggle">Auto, Home, and Personal Insurance
+              <span class="arrow1">&#9660;</span></a>
             <div class="mobile-dropdown-content">
               <a href="#">Auto Insurance</a>
               <a href="#">Homeowners Insurance</a>
@@ -638,21 +635,75 @@ color: #aaa;
               <a href="#">View All Personal</a>
             </div>
           </div>
-          <a href="#">Business Insurance</a>
-          <a href="#">Life Insurance</a>
-          <a href="#">Medicare Supplements</a>
+          <div class="mobile-dropdown inner-dropdown">
+            <a href="#" class="dropdown-toggle">Business Insurance
+              <span class="arrow1">&#9660;</span></a>
+            <div class="mobile-dropdown-content">
+              <a href="#">Business Owners Package Insurance</a>
+              <a href="../BusinessInsurance/CommercialAutoInsurance.html">Commercial Auto Insurance</a>
+              <a href="#">Commercial Property Insurance</a>
+              <a href="#">General Liablity Insurance</a>
+              <a href="#">Long-Haul Trucking Insurance</a>
+              <a href="#">Workers Compensation Insurance</a>
+
+              <a href="#">View All Business</a>
+            </div>
+          </div>
+          <div class="mobile-dropdown inner-dropdown">
+            <a href="#" class="dropdown-toggle">Life Insurance
+              <span class="arrow1">&#9660;</span></a>
+            <div class="mobile-dropdown-content">
+              <a href="#">Fixed Annuities</a>
+              <a href="#">Final Expense Insurance</a>
+              <a href="#">Individual Life Insurance</a>
+
+              <a href="#">View All Life</a>
+            </div>
+          </div> <a href="#">Medicare Supplements</a>
         </div>
       </div>
 
-      <a href="#">About</a>
-      <a href="#">Support</a>
-      <a href="#">Contact</a>
+      <div class="mobile-dropdown outer-dropdown">
+        <a href="#" class="dropdown-toggle">Aboutus <span class="arrow">&#9660;</span></a>
+        <div class="mobile-dropdown-content">
+
+          <a href="../AboutUS/Review.html">Customer Reviews</a>
+          <a href="../AboutUS/InsuranceCompanies.html">Insurance Companies</a>
+          <a href="../AboutUS/Blog.html">Insurance Blogs</a>
+
+        </div>
+      </div>
+      <div class="mobile-dropdown outer-dropdown">
+        <a href="#" class="dropdown-toggle">Support<span class="arrow">&#9660;</span></a>
+        <div class="mobile-dropdown-content">
+
+          <a href="#">Online Billings & Payments</a>
+          <a href="#">Fila a Claim</a>
+          <a href="#">AutoId card Request</a>
+          <a href="#">Certificate of Insurance Request</a>
+          <a href="#">Policy Change Request</a>
+          <a href="#">Annual Insurance Checklist</a>
+          <a href="#">Insurance Resources</a>
+
+        </div>
+      </div>
+      <div class="mobile-dropdown outer-dropdown">
+        <a href="#" class="dropdown-toggle">Contact <span class="arrow">&#9660;</span></a>
+        <div class="mobile-dropdown-content">
+
+          <a href="../Contacts/IndianapolisOffice.html">Indianapolis Office</a>
+          <a href="../Contacts/SecureContactForm.html">Secure Contact Form</a>
+          <a href="../Contacts/Referal.html">Refer a Friend</a>
+
+        </div>
+      </div>
     </div>
   </nav>
-    <div class="call-button">
-        <i class="fas fa-phone"></i>
-        <span>Get Quote</span>
-      </div>
+  <div class="call-button">
+    <a style="text-decoration: none; color: white;" href="tel: (317) 434-3333">
+    <i class="fas fa-phone"></i>
+    <span>Get Quote</span></a>
+  </div>
     
     <div class="hero" data-aos="fade-up" data-aos-duration="1000">
         Commercial Auto Insurance - Protect Your Business on the Road
@@ -716,10 +767,10 @@ color: #aaa;
       <div class="footer-links" data-aos="fade-up" data-aos-delay="300">
         <h3>About Us</h3>
         <ul>
-          <li><a href="../">About Us</a></li>
-          <li><a href="../aboutus/">Customer Reviews</a></li>
-          <li><a href="../services/">Insurance Companies</a></li>
-          <li><a href="../academy/">Insurance Blog</a></li>
+          <li><a href="../AboutUS/Review.html">About Us</a></li>
+          <li><a href="../AboutUS/Review.html">Customer Reviews</a></li>
+          <li><a href="../AboutUS/InsuranceCompanies.html">Insurance Companies</a></li>
+          <li><a href="../AboutUS/Blog.html">Insurance Blog</a></li>
         </ul>
       </div>
       <div class="footer-links" data-aos="fade-up" data-aos-delay="300">

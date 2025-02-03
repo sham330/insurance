@@ -1,266 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multi-level Dropdown for Mobile</title>
-  <style>
-    /* Navbar Styles */
-    nav {
-      background-color: white;
-      color: #333;
-      padding: 20px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Insurance Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
 
-    nav .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #333;
-    }
+        header {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-    }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
 
-    nav ul li {
-      margin: 0 15px;
-      position: relative;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
 
-    nav ul li a {
-      color: #333;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      position: relative;
-      display: inline-block;
-      transition: color 0.3s;
-    }
+        .blog-post {
+            display: flex;
+            flex-wrap: wrap;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
 
-    nav ul li a::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background-color: #1565C0;
-      transition: width 0.3s ease-in-out;
-    }
+        .blog-post img {
+            width: 100%;
+            max-width: 400px;
+            object-fit: cover;
+        }
 
-    nav ul li a:hover::after {
-      width: 100%;
-    }
+        .blog-content {
+            flex: 1;
+            padding: 1.5rem;
+        }
 
-    nav ul li a:hover {
-      color: #1565C0;
-    }
+        .blog-title {
+            font-size: 1.75rem;
+            color: #ff8c00;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
 
-    /* Dropdown Menu */
-    .dropdown-content, .sub-dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: white;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-      border-radius: 5px;
-      z-index: 1000;
-      min-width: 200px;
-      left: 0;
-      top: 100%;
-    }
+        .blog-meta {
+            font-size: 0.875rem;
+            color: #888;
+            margin: 0.5rem 0 1rem;
+        }
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
+        .blog-text {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
 
-    .sub-dropdown:hover .sub-dropdown-content {
-      display: block;
-      position: absolute;
-      left: 100%;
-      top: 0;
-    }
+        .divider {
+            border-top: 2px solid #eee;
+            margin: 2rem 0;
+        }
 
-    .dropdown-content a, .sub-dropdown-content a {
-      color: #333;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
-    }
-
-    .dropdown-content a:hover, .sub-dropdown-content a:hover {
-      background-color: #f1f1f1;
-    }
-
-    /* Mobile Menu */
-    #menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: #333;
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    #mobile-menu {
-      display: none;
-      flex-direction: column;
-      background-color: white;
-      padding: 20px;
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100%;
-      width: 75%;
-      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in-out;
-      z-index: 1000;
-    }
-
-    #mobile-menu.show {
-      display: flex;
-      transform: translateX(0);
-    }
-
-    #mobile-menu a {
-      color: #333;
-      text-decoration: none;
-      padding: 15px 0;
-      font-size: 20px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      position: relative;
-    }
-
-    /* Mobile Dropdown */
-    .mobile-dropdown {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .mobile-dropdown > a {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    .mobile-dropdown-content {
-      display: none;
-      padding-left: 15px;
-    }
-
-    .mobile-dropdown.active .mobile-dropdown-content {
-      display: block;
-    }
-
-    .arrow {
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .mobile-dropdown.active .arrow {
-      transform: rotate(180deg);
-    }
-
-    /* Close Button */
-    #close-btn {
-      background: none;
-      border: none;
-      color: #333;
-      font-size: 28px;
-      align-self: flex-end;
-      cursor: pointer;
-      margin-bottom: 20px;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-      }
-
-      #menu-btn {
-        display: block;
-      }
-    }
-  </style>
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #0056b3;
+            color: #fff;
+            font-size: 0.875rem;
+        }
+    </style>
 </head>
 <body>
 
-  <nav>
-    <div class="logo">Continental Insurance Solutions Inc.</div>
-    <ul id="nav-links">
-      <li><a href="#">Home</a></li>
-      <li class="dropdown">
-        <a href="#">Insurance Services</a>
-        <div class="dropdown-content">
-          <div class="sub-dropdown">
-            <a href="#">Auto, Home, and Personal Insurance</a>
-            <div class="sub-dropdown-content">
-              <a href="#">Auto Insurance</a>
-              <a href="#">Homeowners Insurance</a>
-              <a href="#">Renters Insurance</a>
-            </div>
-          </div>
-          <a href="#">Business Insurance</a>
-        </div>
-      </li>
-      <li><a href="#">About</a></li>
-    </ul>
-    <button id="menu-btn">&#9776;</button>
+<header>
+    <h1>Insurance Blog</h1>
+</header>
 
-    <div id="mobile-menu">
-      <button id="close-btn">&times;</button>
-      <a href="#">Home</a>
-      <div class="mobile-dropdown">
-        <a href="#" class="dropdown-toggle">Insurance Services <span class="arrow">&#9660;</span></a>
-        <div class="mobile-dropdown-content">
-          <div class="mobile-dropdown">
-            <a href="#" class="dropdown-toggle">Auto, Home, and Personal Insurance <span class="arrow">&#9660;</span></a>
-            <div class="mobile-dropdown-content">
-              <a href="#">Auto Insurance</a>
-              <a href="#">Homeowners Insurance</a>
-            </div>
-          </div>
-          <a href="#">Business Insurance</a>
+<div class="container">
+    <div class="blog-post">
+        <img src="https://via.placeholder.com/400x250" alt="Winter Driving">
+        <div class="blog-content">
+            <h2 class="blog-title">5 Winter Driving Mistakes That May Increase Your Premium</h2>
+            <p class="blog-meta">Posted: February 2, 2025</p>
+            <p class="blog-text">Yesterday was Car Insurance Day. The first of February has been set aside as the annual day to be thankful for the peace of mind your auto insurance provides—and to focus on the importance of safe driving. As we face the last several weeks of winter, it is the perfect time for an insurance policy review...</p>
         </div>
-      </div>
-      <a href="#">About</a>
     </div>
-  </nav>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const menuBtn = document.getElementById('menu-btn');
-      const closeBtn = document.getElementById('close-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
+    <div class="divider"></div>
 
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.add('show');
-      });
+    <div class="blog-post">
+        <img src="https://via.placeholder.com/400x250" alt="Life Insurance">
+        <div class="blog-content">
+            <h2 class="blog-title">When Should You Buy Life Insurance?</h2>
+            <p class="blog-meta">Posted: January 25, 2025</p>
+            <p class="blog-text">Life insurance is one of the most important financial products you can purchase. Whether you're starting a family, buying a home, or planning your retirement, knowing when to buy life insurance is crucial to protect your loved ones...</p>
+        </div>
+    </div>
+</div>
 
-      closeBtn.addEventListener('click', () => {
-        mobileMenu.classList.remove('show');
-      });
-
-      document.querySelectorAll('.dropdown-toggle').forEach(item => {
-        item.addEventListener('click', function (e) {
-          e.preventDefault();
-          this.parentElement.classList.toggle('active');
-        });
-      });
-    });
-  </script>
+<footer>
+    &copy; 2025 Insurance Blog. All rights reserved.
+</footer>
 
 </body>
 </html>
