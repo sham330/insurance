@@ -4,97 +4,278 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="../assets/icon.PNG" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../supportindex.css" />
+
 </head>
-<style>
-    /* styles.css */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-    color: #000;
-    line-height: 1.6;
-}
 
-.header {
-    text-align: center;
-    padding: 2rem;
-    background-color: #f5f5f5;
-}
-
-.title {
-    font-size: 2.5rem;
-    color: #1565C0;
-    margin-bottom: 1rem;
-}
-
-.description {
-    font-size: 1.2rem;
-    color: #333;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.section {
-    padding: 2rem;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
-.section-title {
-    font-size: 1.8rem;
-    color: #1565C0;
-    margin-bottom: 1rem;
-}
-
-.section-description {
-    font-size: 1rem;
-    color: #555;
-    max-width: 600px;
-    margin: 0 auto 1.5rem;
-}
-
-.btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: #1565C0;
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #0d47a1;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-}
-
-</style>
 <body>
+    <nav >
+        <div class="logo">Continental Insurance Solutions Inc.</div>
+        <ul id="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="">Insurance Services</a>
+            <div class="dropdown-content">
+              <div class="sub-dropdown">
+                <a href="../PersonalInsurance/index.html">Auto, Home, and Personal Insurance</a>
+                <div class="sub-dropdown-content">
+                  <a href="../PersonalInsurance/AutoInsurance.html">Auto Insurance</a>
+                  <a href="../PersonalInsurance/HomeownersInsurance.html">Homeowners Insurance</a>
+                  <a href="../PersonalInsurance/RentersInsurance.html">Renters Insurance</a>
+                  <a href="../PersonalInsurance/MotorcycleInsurance.html">Motorcycle Insurance</a>
+                  <a href="../PersonalInsurance/BoatMarineInsurance.html">Boat & Marine Insurance</a>
+                  <a href="../PersonalInsurance/index.html">View All Personal</a>
+                </div>
+              </div>
+              <div class="sub-dropdown">
+                <a href="./index.html">Business Insurance</a>
+                <div class="sub-dropdown-content">
+                  <a href="./BusinessOwnerrsPackage.html">Business Owners Package Insurance</a>
+                  <a href="./CommercialAutoInsurance.html">Commercial Auto Insurance</a>
+                  <a href="./CommercialPropery.html">Commercial Property Insurance</a>
+                  <a href="./GeneralLiabilityInsurance.html">General Liablity Insurance</a>
+                  <a href="./Long-HaulTrucking.html">Long-Haul Trucking Insurance</a>
+                  <a href="./WorkersCompnesation.html">Workers Compensation Insurance</a>
+    
+                  <a href="./index.html">View All Business</a>
+                </div>
+              </div>
+            
+    <div class="sub-dropdown">
+      <a href="../LifeInsurance/index.html">Life Insurance</a>
+      <div class="sub-dropdown-content">
+        <a href="../LifeInsurance/FixedAnnuities.html">Fixed Annuities</a>
+        <a href="../LifeInsurance/FinalExpense.html">Final Expense Insurance</a>
+        <a href="../LifeInsurance/IndividualLife.html">Individual Life Insurance</a>
+    
+        <a href="../LifeInsurance/index.html">View All Life</a>
+      </div>
+    </div>          <a href="../MedicalSupplements/index.html">Medicare Supplements</a>
+            </div>
+          </li>
+          <li class="dropdown"><a href="#">About</a><div class="dropdown-content">
+            <a href="../AboutUS/Review.html">Customer Reviews</a>
+            <a href="../AboutUS/InsuranceCompanies.html">Insurance Companies</a>
+            <a href="../AboutUS/Blog.html">Insurance Blogs</a>
+          </div></li>
+          <li class="dropdown"><a href="../Support/index.html">Support</a><div class="dropdown-content">
+            <a href="../Support/OnlineBillings&Payments.html">Online Billings & Payments</a>
+            <a href="../Support/FileClaim.html">File a Claim</a>
+            <a href="../Support/AutoIdcardRequesst.html">AutoId card Request</a>
+            <a href="../Support/CertificateofInsurance.html">Certificate of Insurance Request</a>
+            <a href="../Support/PolicyChange.html">Policy Change Request</a>
+            <a href="../Support/AnnualInsuranceCheck.html">Annual Insurance Checklist</a>
+            <a href="../Support/InsuranceResource.html">Insurance Resources</a>
+          </div></li>
+          <li class="dropdown"><a href="../Contacts/IndianapolisOffice.html">Contact</a><div class="dropdown-content">
+            <a href="../Contacts/IndianapolisOffice.html">Indianapolis Office</a>
+            <a href="../Contacts/SecureContactForm.html">Secure Contact Form</a>
+            <a href="../Contacts/Referal.html">Refer a Friend</a>
+          </div></li>    </ul>
+        <button id="menu-btn">&#9776;</button>
+    
+        <div id="mobile-menu">
+          <button id="close-btn">&times;</button>
+          <a href="../index.html">Home</a>
+          <div class="mobile-dropdown outer-dropdown">
+            <a href="#" class="dropdown-toggle">Insurance Services <span class="arrow">&#9660;</span></a>
+            <div class="mobile-dropdown-content">
+              <div class="mobile-dropdown inner-dropdown">
+                <a href="../PersonalInsurance/index.html" class="dropdown-toggle">Auto, Home, and Personal Insurance
+                  <span class="arrow1">&#9660;</span></a>
+                <div class="mobile-dropdown-content">
+                  <a href="../PersonalInsurance/AutoInsurance.html">Auto Insurance</a>
+                  <a href="../PersonalInsurance/HomeownersInsurance.html">Homeowners Insurance</a>
+                  <a href="../PersonalInsurance/RentersInsurance.html">Renters Insurance</a>
+                  <a href="../PersonalInsurance/MotorcycleInsurance.html">Motorcycle Insurance</a>
+                  <a href="../PersonalInsurance/BoatMarineInsurance.html">Boat & Marine Insurance</a>
+                  <a href="../PersonalInsurance/index.html">View All Personal</a>
+                </div>
+              </div>
+              <div class="mobile-dropdown inner-dropdown">
+                <a href="./index.html" class="dropdown-toggle">Business Insurance
+                  <span class="arrow1">&#9660;</span></a>
+                <div class="mobile-dropdown-content">
+                  <a href="./BusinessOwnerrsPackage.html">Business Owners Package Insurance</a>
+                  <a href="../BusinessInsurance/CommercialAutoInsurance.html">Commercial Auto Insurance</a>
+                  <a href="./CommercialPropery.html">Commercial Property Insurance</a>
+                  <a href="./GeneralLiabilityInsurance.html">General Liablity Insurance</a>
+                  <a href="./Long-HaulTrucking.html">Long-Haul Trucking Insurance</a>
+                  <a href="./WorkersCompnesation.html">Workers Compensation Insurance</a>
+    
+                  <a href="./index.html">View All Business</a>
+                </div>
+              </div>
+              <div class="mobile-dropdown inner-dropdown">
+                <a href="../LifeInsurance/index.html" class="dropdown-toggle">Life Insurance
+                  <span class="arrow1">&#9660;</span></a>
+                <div class="mobile-dropdown-content">
+                  <a href="../LifeInsurance/FixedAnnuities.html">Fixed Annuities</a>
+                  <a href="../LifeInsurance/FinalExpense.html">Final Expense Insurance</a>
+                  <a href="../LifeInsurance/IndividualLife.html">Individual Life Insurance</a>
+    
+                  <a href="../LifeInsurance/index.html">View All Life</a>
+                </div>
+              </div> <a href="../MedicalSupplements/index.html">Medicare Supplements</a>
+            </div>
+          </div>
+    
+          <div class="mobile-dropdown outer-dropdown">
+            <a href="#" class="dropdown-toggle">Aboutus <span class="arrow">&#9660;</span></a>
+            <div class="mobile-dropdown-content">
+    
+              <a href="../AboutUS/Review.html">Customer Reviews</a>
+              <a href="../AboutUS/InsuranceCompanies.html">Insurance Companies</a>
+              <a href="../AboutUS/Blog.html">Insurance Blogs</a>
+    
+            </div>
+          </div>
+          <div class="mobile-dropdown outer-dropdown">
+            <a href="../Support/index.html" class="dropdown-toggle">Support<span class="arrow">&#9660;</span></a>
+            <div class="mobile-dropdown-content">
+    
+              <a href="../Support/OnlineBillings&Payments.html">Online Billings & Payments</a>
+              <a href="../Support/FileClaim.html">File a Claim</a>
+              <a href="../Support/AutoIdcardRequesst.html">AutoId card Request</a>
+              <a href="../Support/CertificateofInsurance.html">Certificate of Insurance Request</a>
+              <a href="../Support/PolicyChange.html">Policy Change Request</a>
+              <a href="../Support/AnnualInsuranceCheck.html">Annual Insurance Checklist</a>
+              <a href="../Support/InsuranceResource.html">Insurance Resources</a>
+    
+            </div>
+          </div>
+          <div class="mobile-dropdown outer-dropdown">
+            <a href="#" class="dropdown-toggle">Contact <span class="arrow">&#9660;</span></a>
+            <div class="mobile-dropdown-content">
+    
+              <a href="../Contacts/IndianapolisOffice.html">Indianapolis Office</a>
+              <a href="../Contacts/SecureContactForm.html">Secure Contact Form</a>
+              <a href="../Contacts/Referal.html">Refer a Friend</a>
+    
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="call-button">
+        <a style="text-decoration: none; color: white;" href="tel: (317) 434-3333">
+        <i class="fas fa-phone"></i>
+        <span>Get Quote</span></a>
+      </div>
     <header class="header">
         <h1 class="title">Support</h1>
         <p class="description">
             We want to assist our customers any way we can. In order to give you the most efficient service, we have built an online Policy Service Center to allow our customers to change policy information, report claims, or make a payment directly to your insurance carrier.
         </p>
     </header>
-
+<div>
     <section class="section">
         <h2 class="section-title">Online Billing & Payments</h2>
         <p class="section-description">
             Most of our insurance companies have the option for you to pay your premiums by EFT (Electronic Funds Transfer), e-check, or by credit card. Fast online payments can prevent lapses in coverage and save you time.
         </p>
-        <a href="#" class="btn">Online Billing & Payments</a>
+        <a href="./OnlineBillings&Payments.html" class="btn">Online Billing & Payments</a>
     </section>
 
     <section class="section">
         <h2 class="section-title">Online Claims Filing</h2>
         <p class="section-description">
-            Submit claims online to ensure fast processing and quick resolutions. Our online claims center is available 24/7 for your convenience.
-        </p>
-        <a href="#" class="btn">File a Claim</a>
+            If you have a claim to report, you can take advantage of your insurance carrier's 24/7 Claim Support Service to report a claim directly to the insurance company claim department or you may contact Continental Insurance Solutions Inc..        </p>
+        <a href="./FileClaim.html" class="btn">File a Claim</a>
     </section>
+    <section class="section">
+        <h2 class="section-title">Certificate of Insurance</h2>
+        <p class="section-description">
+            You may use the form below to submit a request for a Certificate of Insurance directly to one of our qualified agents. 
+            An agent from our office will contact you shortly after receiving the request. 
+            This feature is only for existing clients who are commercial policyholders.
+        </p>
+        <a href="./CertificateofInsurance.html" class="btn">Request a Certificate</a>
+    </section>
+    <section class="section">
+        <h2 class="section-title">Policy Change Request</h2>
+        <p class="section-description">
+            Use this form to request a change to your current insurance policy. 
+            By submitting this form, you understand that no coverage or premium adjustment of any kind is bound until you receive written notice.
+        </p>
+        <a href="./PolicyChange.html" class="btn">Request a Policy Change</a>
+    </section>
+    <section class="section">
+        <h2 class="section-title">Auto ID Card Request</h2>
+        <p class="section-description">
+            Use this form to request a replacement auto policy ID card for your current insurance policy. 
+            The Auto ID Card provides proof of coverage and also provides the insured with information on what to do in case of an accident. 
+            Certain states require an Auto ID Card to be carried in the vehicle at all times.
+        </p>
+        <a href="./AutoIdcardRequesst.html" class="btn">Request Auto ID Card</a>
+    </section>
+    <section class="section">
+        <h2 class="section-title">Annual Insurance Review</h2>
+        <p class="section-description">
+            In today’s fast-paced world, making sure that your insurance policies are up-to-date is more important than ever. 
+            By staying in touch with your insurance agent, you can ensure that you always have the protection that you and your family deserve. 
+            This Annual Insurance Review will help us see which plan will give you, your family, and your assets the best possible coverage and peace of mind.
+        </p>
+        <a href="./AnnualInsuranceCheck.html" class="btn">Start Your Review</a>
+    </section></div>
+    
+    <!-- Footer -->
+    <footer class="footer-section" data-aos="fade-down" data-aos-duration="1000">
+        <div class="footer-container">
+          <div class="footer-contact" data-aos="fade-up" data-aos-delay="400">
+            <h3>Contact Us</h3>
+            <ul>
+              
+              <li>Phone: <a href="tel: (317) 434-3333"> (317) 434-3333</a></li>
+              <li>Continental Insurance Solutions Inc.
+                5324 Elmwood Ave
+                Indianapolis, Indiana 46203</li>
+                <li>Mon-Fri: 9:00am-5:00pm
+                  Sat-Sun: Closed</li>
+            </ul>
+          </div>
+          <div class="footer-links" data-aos="fade-up" data-aos-delay="300">
+            <h3>Insurance</h3>
+            <ul>
+              <li><a href="../PersonalInsurance/">Auto, Home, Personal Insurance</a></li>
+              <li><a href="../BusinessInsurance/index.html">Business Insurance</a></li>
+              <li><a href="../LifeInsurance/index.html">Life Insurance</a></li>
+              <li><a href="../MedicalSupplements/index.html">Medicare Supplements</a></li>
+            </ul>
+          </div>
+          <div class="footer-links" data-aos="fade-up" data-aos-delay="300">
+            <h3>About Us</h3>
+            <ul>
+              <li><a href="../AboutUS/Review.html">About Us</a></li>
+              <li><a href="../AboutUS/Review.html">Customer Reviews</a></li>
+              <li><a href="../AboutUS/InsuranceCompanies.html">Insurance Companies</a></li>
+              <li><a href="../AboutUS/Blog.html">Insurance Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-links" data-aos="fade-up" data-aos-delay="300">
+            <h3>Policy Service</h3>
+            <ul>
+              <li><a href="../Support/index.html">Support</a></li>
+              <li><a href="../Support/OnlineBillings&Payments.html">Online Billings & Payments</a></li>
+              <li><a href="../Support/FileClaim.html">File a Claim</a></li>
+              <li><a href="../Support/PolicyChange.html">Policy Change Request</a></li>
+              <li><a href="../Support/AnnualInsuranceCheck.html">Anual Insurance Checklist</a></li>
+    
+            </ul>
+          </div>
+         
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 
+            Continental Insurance Solutions Inc. provides commercial auto, auto, home, business, and life insurance, as well as annuities to all of Indiana, including Greenwood, Franklin, Avon, Fishers, Brownsburg, and Whiteland.</p>
+        </div>
+      </footer>
+    
+    <script src="../insurance.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
 </body>
 </html>

@@ -46,4 +46,8 @@
    innerDropdownContent.style.display =
      innerDropdownContent.style.display === "block" ? "none" : "block";
  });
- AOS.init();
+
+
+ document.addEventListener("DOMContentLoaded", function () {
+  AOS.init();
+});

@@ -5,687 +5,161 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Business Insurance</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <style>
-    /* General Styles */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    nav {
-    background-color: white;
-    color: #333;
-    padding: 20px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-position: sticky; /* Make the navbar sticky */
-top: 0; /* Stick to the top of the viewport */
-z-index: 1000; /* Ensure it stays above other content */
-      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  }
+    <link rel="icon" href="../assets/icon.PNG" />
+    <link rel="stylesheet" href="../insuranceindex.css" />
+  
 
-
-
-nav .logo {
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  margin: 0 15px;
-  position: relative;
-}
-
-
-nav ul li a {
-  color: #333;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-  position: relative;
-  display: inline-block;
-  transition: color 0.3s;
-}
-
-nav ul li a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: #1565C0;
-  transition: width 0.3s ease-in-out;
-}
-
-nav ul li a:hover::after {
-  width: 100%;
-}
-
-#nav-links .dropdown {
-  position: relative;
-}
-
-nav ul li a:hover {
-  color: #1565C0;
-}
-
- /* Dropdown Menu */
- .dropdown-content, .sub-dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  z-index: 1000;
-  min-width: 200px;
-  left: 0;
-  top: 100%;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-
-.sub-dropdown:hover .sub-dropdown-content {
-  display: block;
-  position: absolute;
-  left: 100%;
-  top: 0;
-}
-
-.dropdown-content a, .sub-dropdown-content a {
-  color: #333;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-.dropdown-content a:hover, .sub-dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
-
-
-#menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 30px;
-  color: #333;
-  cursor: pointer;
-}
-
-/* Mobile Menu Styles */
-#mobile-menu {
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 250px;
-  height: 100%;
-  background-color: white;
-  padding: 20px;
-  overflow-y: auto; /* Enables vertical scrolling */
-  z-index: 1000;}
-
-#mobile-menu a {
-  display: block;
-  color: #333;
-  text-decoration: none;
-  padding: 10px;
-  border-bottom: 2px solid #aaa;
-}
-#mobile-menu a:hover {
-  border-bottom: 2px solid blue; /* Set the border to blue on hover */
-}
-
-#close-btn {
-  background: none;
-  border: none;
-  font-size: 30px;
-  color: #333;
-  cursor: pointer;
-}
-
-.mobile-dropdown {
-  position: relative;
-}
-
-.mobile-dropdown-content {
-  display: none;
-  background-color: #f4f4f4;
-  padding: 10px;
-  width: 100%;
-  margin-left: 20px;
-}
-
-.mobile-dropdown:hover .mobile-dropdown-content {
-  display: block;
-}
-
-.mobile-dropdown .inner-dropdown {
-  position: relative;
-}
-
-.mobile-dropdown .inner-dropdown-content {
-  display: none;
-  background-color: white;
-  padding: 10px;
-  width: 100%;
-}
-
-.mobile-dropdown .inner-dropdown:hover .inner-dropdown-content {
-  display: block;
-}
-
-.mobile-dropdown .dropdown-toggle {
-  cursor: pointer;
-}
-
-.arrow,
-.arrow1 {
-  margin-left: 10px;
-  font-size: 10px;
-}
-
-/* Show the mobile menu button on small screens */
-@media (max-width: 768px) {
-  #nav-links {
-    display: none;
-  }
-
-  #menu-btn {
-    display: block;
-  }
-
-  #mobile-menu {
-    display: none;
-  }
-}
-
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    h1, h2 {
-      color: #333;
-    }
-
-    p {
-      color: #555;
-    }
-
-    /* Top Section */
-    .top-section {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: 50px;
-    }
-
-    .top-section .image-container {
-      flex: 1;
-      text-align: center;
-    }
-
-    .top-section .image-container img {
-      max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .top-section .content {
-      flex: 1;
-      padding: 20px;
-    }
-
-    .top-section .content h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-
-    .top-section .content p {
-      font-size: 18px;
-      line-height: 1.8;
-    }
-
-    /* Links Section */
-    .links-section ul {
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-
-    .links-section ul li {
-      font-size: 18px;
-      color: #333;
-    }
-
-    .links-section ul li a {
-      color:  #1565C0;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .links-section ul li a:hover {
-      color: darkblue;
-    }
-    form {
-            width: 100%;
-            max-width: 600px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            text-align: center;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        input, select {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            background-color: #1565C0;
-            color: white;
-            padding: 12px;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        button:hover {
-            background-color: #0d47a1;
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .text-section, .video-container {
-                width: 100%;
-            }
-            .video-container {
-                padding-bottom: 56.25%;
-            }
-        }
-        /* Floating Call Button */
-.call-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #0079c1; /* Button background color */
-    color: white;
-    border-radius: 50px;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    z-index: 1000;
-    transition: transform 0.3s ease;
-  }
-
-  .call-button:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
-  }
-
-  .call-button i {
-    font-size: 20px;
-    margin-right: 10px; /* Space between icon and text */
-  }
-
-  .call-button span {
-    font-size: 16px;
-    font-weight: bold;
-  }
-  .footer-section {
-
-background: black;
-/* Subtle gradient */
-color: #fff;
-padding: 60px 20px;
-text-align: center;
-font-family: "Poppins", sans-serif;
-position: relative;
-overflow: hidden;
-}
-
-/* Creative Overlay Effect */
-.footer-section::before {
-content: "";
-position: absolute;
-top: -50px;
-left: -50px;
-width: 200px;
-height: 200px;
-background: #0079c1;
-/* Pista Green */
-opacity: 0.1;
-border-radius: 50%;
-z-index: 1;
-}
-
-.footer-section::after {
-content: "";
-position: absolute;
-bottom: -50px;
-right: -50px;
-width: 300px;
-height: 300px;
-background: #0079c1;
-/* Pista Green */
-opacity: 0.1;
-border-radius: 50%;
-z-index: 1;
-}
-
-.footer-container {
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-align-items: flex-start;
-max-width: 100%;
-margin: 0 auto;
-position: relative;
-z-index: 2;
-}
-
-/* Branding Section */
-.footer-branding {
-flex: 1;
-min-width: 250px;
-margin-bottom: 30px;
-}
-
-.footer-branding h2 {
-font-size: 2rem;
-color: #0079c1;
-/* Pista green */
-margin-bottom: 15px;
-font-weight: bold;
-}
-
-.footer-branding p {
-font-size: 1rem;
-line-height: 1.6;
-color: #ccc;
-margin-bottom: 20px;
-}
-
-
-
-/* Links Section */
-.footer-links {
-flex: 1;
-min-width: 200px;
-margin-bottom: 30px;
-}
-
-.footer-links h3 {
-font-size: 1.5rem;
-margin-bottom: 20px;
-color: #0079c1;
-}
-
-.footer-links ul {
-list-style: none;
-padding: 0;
-margin: 0;
-}
-
-.footer-links li {
-margin-bottom: 10px;
-}
-
-.footer-links a {
-color: #ddd;
-text-decoration: none;
-font-size: 1rem;
-transition: color 0.3s;
-}
-
-.footer-links a:hover {
-color: #0079c1;
-}
-
-/* Contact Section */
-.footer-contact {
-flex: 1;
-min-width: 250px;
-margin-bottom: 30px;
-}
-
-.footer-contact h3 {
-font-size: 1.5rem;
-margin-bottom: 20px;
-color: #0079c1;
-}
-
-.footer-contact ul {
-list-style: none;
-padding: 0;
-margin: 0;
-}
-
-.footer-contact li {
-margin-bottom: 10px;
-font-size: 1rem;
-color: #ddd;
-}
-
-.footer-contact a {
-color: #0079c1;
-text-decoration: none;
-transition: color 0.3s ease;
-}
-
-.footer-contact a:hover {
-color: #fff;
-}
-
-/* Footer Bottom */
-.footer-bottom {
-margin-top: 30px;
-border-top: 1px solid #333;
-padding-top: 20px;
-font-size: 0.9rem;
-color: #aaa;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-.footer-container {
-  flex-direction: column;
-  align-items: center;
-}
-
-.footer-branding h2,
-.footer-links h3,
-.footer-contact h3 {
-  text-align: center;
-}
-}
-
-  </style>
 </head>
 <body>
-    <nav >
-        <div class="logo">Continental Insurance Solutions Inc.</div>
-        <ul id="nav-links">
-          <li><a href="../index.html">Home</a></li>
-          <li class="dropdown">
-            <a href="#">Insurance Services</a>
-            <div class="dropdown-content">
-              <div class="sub-dropdown">
-                <a href="#">Auto, Home, and Personal Insurance</a>
-                <div class="sub-dropdown-content">
-                  <a href="#">Auto Insurance</a>
-                  <a href="#">Homeowners Insurance</a>
-                  <a href="#">Renters Insurance</a>
-                  <a href="#">Motorcycle Insurance</a>
-                  <a href="#">Boat & Marine Insurance</a>
-                  <a href="#">View All Personal</a>
-                </div>
+  
+  <nav >
+      <div class="logo">Continental Insurance Solutions Inc.</div>
+      <ul id="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="">Insurance Services</a>
+          <div class="dropdown-content">
+            <div class="sub-dropdown">
+              <a href="../PersonalInsurance/index.html">Auto, Home, and Personal Insurance</a>
+              <div class="sub-dropdown-content">
+                <a href="../PersonalInsurance/AutoInsurance.html">Auto Insurance</a>
+                <a href="../PersonalInsurance/HomeownersInsurance.html">Homeowners Insurance</a>
+                <a href="../PersonalInsurance/RentersInsurance.html">Renters Insurance</a>
+                <a href="../PersonalInsurance/MotorcycleInsurance.html">Motorcycle Insurance</a>
+                <a href="../PersonalInsurance/BoatMarineInsurance.html">Boat & Marine Insurance</a>
+                <a href="../PersonalInsurance/index.html">View All Personal</a>
               </div>
-              <div class="sub-dropdown">
-                <a href="./index.html">Business Insurance</a>
-                <div class="sub-dropdown-content">
-                  <a href="./BusinessOwnerrsPackage.html">Business Owners Package Insurance</a>
-                  <a href="./CommercialAutoInsurance.html">Commercial Auto Insurance</a>
-                  <a href="./CommercialPropery.html">Commercial Property Insurance</a>
-                  <a href="./GeneralLiabilityInsurance.html">General Liablity Insurance</a>
-                  <a href="./Long-HaulTrucking.html">Long-Haul Trucking Insurance</a>
-                  <a href="./WorkersCompnesation.html">Workers Compensation Insurance</a>
-    
-                  <a href="./index.html">View All Business</a>
-                </div>
-              </div>
-            
-    <div class="sub-dropdown">
-      <a href="#">Life Insurance</a>
-      <div class="sub-dropdown-content">
-        <a href="#">Fixed Annuities</a>
-        <a href="#">Final Expense Insurance</a>
-        <a href="#">Individual Life Insurance</a>
-    
-        <a href="#">View All Life</a>
-      </div>
-    </div>          <a href="#">Medicare Supplements</a>
             </div>
-          </li>
-          <li class="dropdown"><a href="#">About</a><div class="dropdown-content">
+            <div class="sub-dropdown">
+              <a href="../BusinessInsurance/index.html">Business Insurance</a>
+              <div class="sub-dropdown-content">
+                <a href="../BusinessInsurance//BusinessOwnerrsPackage.html">Business Owners Package Insurance</a>
+                <a href="../BusinessInsurance//CommercialAutoInsurance.html">Commercial Auto Insurance</a>
+                <a href="../BusinessInsurance//CommercialPropery.html">Commercial Property Insurance</a>
+                <a href="../BusinessInsurance//GeneralLiabilityInsurance.html">General Liablity Insurance</a>
+                <a href="../BusinessInsurance//Long-HaulTrucking.html">Long-Haul Trucking Insurance</a>
+                <a href="../BusinessInsurance//WorkersCompnesation.html">Workers Compensation Insurance</a>
+  
+                <a href="../BusinessInsurance//index.html">View All Business</a>
+              </div>
+            </div>
+          
+  <div class="sub-dropdown">
+    <a href="../LifeInsurance/index.html">Life Insurance</a>
+    <div class="sub-dropdown-content">
+      <a href="../LifeInsurance/FixedAnnuities.html">Fixed Annuities</a>
+      <a href="../LifeInsurance/FinalExpense.html">Final Expense Insurance</a>
+      <a href="../LifeInsurance/IndividualLife.html">Individual Life Insurance</a>
+  
+      <a href="../LifeInsurance/index.html">View All Life</a>
+    </div>
+  </div>          <a href="../MedicalSupplements/index.html">Medicare Supplements</a>
+          </div>
+        </li>
+        <li class="dropdown"><a href="#">About</a><div class="dropdown-content">
+          <a href="../AboutUS/Review.html">Customer Reviews</a>
+          <a href="../AboutUS/InsuranceCompanies.html">Insurance Companies</a>
+          <a href="../AboutUS/Blog.html">Insurance Blogs</a>
+        </div></li>
+        <li class="dropdown"><a href="../Support/index.html">Support</a><div class="dropdown-content">
+          <a href="../Support/OnlineBillings&Payments.html">Online Billings & Payments</a>
+          <a href="../Support/FileClaim.html">File a Claim</a>
+          <a href="../Support/AutoIdcardRequesst.html">AutoId card Request</a>
+          <a href="../Support/CertificateofInsurance.html">Certificate of Insurance Request</a>
+          <a href="../Support/PolicyChange.html">Policy Change Request</a>
+          <a href="../Support/AnnualInsuranceCheck.html">Annual Insurance Checklist</a>
+          <a href="../Support/InsuranceResource.html">Insurance Resources</a>
+        </div></li>
+        <li class="dropdown"><a href="../Contacts/IndianapolisOffice.html">Contact</a><div class="dropdown-content">
+          <a href="../Contacts/IndianapolisOffice.html">Indianapolis Office</a>
+          <a href="../Contacts/SecureContactForm.html">Secure Contact Form</a>
+          <a href="../Contacts/Referal.html">Refer a Friend</a>
+        </div></li>    </ul>
+      <button id="menu-btn">&#9776;</button>
+  
+      <div id="mobile-menu">
+        <button id="close-btn">&times;</button>
+        <a href="../index.html">Home</a>
+        <div class="mobile-dropdown outer-dropdown">
+          <a href="#" class="dropdown-toggle">Insurance Services <span class="arrow">&#9660;</span></a>
+          <div class="mobile-dropdown-content">
+            <div class="mobile-dropdown inner-dropdown">
+              <a href="../PersonalInsurance/index.html" class="dropdown-toggle">Auto, Home, and Personal Insurance
+                <span class="arrow1">&#9660;</span></a>
+              <div class="mobile-dropdown-content">
+                <a href="../PersonalInsurance/AutoInsurance.html">Auto Insurance</a>
+                <a href="../PersonalInsurance/HomeownersInsurance.html">Homeowners Insurance</a>
+                <a href="../PersonalInsurance/RentersInsurance.html">Renters Insurance</a>
+                <a href="../PersonalInsurance/MotorcycleInsurance.html">Motorcycle Insurance</a>
+                <a href="../PersonalInsurance/BoatMarineInsurance.html">Boat & Marine Insurance</a>
+                <a href="../PersonalInsurance/index.html">View All Personal</a>
+              </div>
+            </div>
+            <div class="mobile-dropdown inner-dropdown">
+              <a href="../BusinessInsurance/index.html" class="dropdown-toggle">Business Insurance
+                <span class="arrow1">&#9660;</span></a>
+              <div class="mobile-dropdown-content">
+                <a href="../BusinessInsurance//BusinessOwnerrsPackage.html">Business Owners Package Insurance</a>
+                <a href="../BusinessInsurance/CommercialAutoInsurance.html">Commercial Auto Insurance</a>
+                <a href="../BusinessInsurance//CommercialPropery.html">Commercial Property Insurance</a>
+                <a href="../BusinessInsurance//GeneralLiabilityInsurance.html">General Liablity Insurance</a>
+                <a href="../BusinessInsurance//Long-HaulTrucking.html">Long-Haul Trucking Insurance</a>
+                <a href="../BusinessInsurance//WorkersCompnesation.html">Workers Compensation Insurance</a>
+  
+                <a href="../BusinessInsurance/index.html">View All Business</a>
+              </div>
+            </div>
+            <div class="mobile-dropdown inner-dropdown">
+              <a href="../LifeInsurance/index.html" class="dropdown-toggle">Life Insurance
+                <span class="arrow1">&#9660;</span></a>
+              <div class="mobile-dropdown-content">
+                <a href="../LifeInsurance/FixedAnnuities.html">Fixed Annuities</a>
+                <a href="../LifeInsurance/FinalExpense.html">Final Expense Insurance</a>
+                <a href="../LifeInsurance/IndividualLife.html">Individual Life Insurance</a>
+  
+                <a href="../LifeInsurance/index.html">View All Life</a>
+              </div>
+            </div> <a href="../MedicalSupplements/index.html">Medicare Supplements</a>
+          </div>
+        </div>
+  
+        <div class="mobile-dropdown outer-dropdown">
+          <a href="#" class="dropdown-toggle">Aboutus <span class="arrow">&#9660;</span></a>
+          <div class="mobile-dropdown-content">
+  
             <a href="../AboutUS/Review.html">Customer Reviews</a>
             <a href="../AboutUS/InsuranceCompanies.html">Insurance Companies</a>
             <a href="../AboutUS/Blog.html">Insurance Blogs</a>
-          </div></li>
-          <li class="dropdown"><a href="#">Support</a><div class="dropdown-content">
-            <a href="#">Online Billings & Payments</a>
-            <a href="#">File a Claim</a>
-            <a href="#">AutoId card Request</a>
-            <a href="#">Certificate of Insurance Request</a>
-            <a href="#">Policy Change Request</a>
-            <a href="#">Annual Insurance Checklist</a>
-            <a href="#">Insurance Resources</a>
-          </div></li>
-          <li class="dropdown"><a href="../Contacts/IndianapolisOffice.html">Contact</a><div class="dropdown-content">
+  
+          </div>
+        </div>
+        <div class="mobile-dropdown outer-dropdown">
+          <a href="../Support/index.html" class="dropdown-toggle">Support<span class="arrow">&#9660;</span></a>
+          <div class="mobile-dropdown-content">
+  
+            <a href="../Support/OnlineBillings&Payments.html">Online Billings & Payments</a>
+            <a href="../Support/FileClaim.html">File a Claim</a>
+            <a href="../Support/AutoIdcardRequesst.html">AutoId card Request</a>
+            <a href="../Support/CertificateofInsurance.html">Certificate of Insurance Request</a>
+            <a href="../Support/PolicyChange.html">Policy Change Request</a>
+            <a href="../Support/AnnualInsuranceCheck.html">Annual Insurance Checklist</a>
+            <a href="../Support/InsuranceResource.html">Insurance Resources</a>
+  
+          </div>
+        </div>
+        <div class="mobile-dropdown outer-dropdown">
+          <a href="#" class="dropdown-toggle">Contact <span class="arrow">&#9660;</span></a>
+          <div class="mobile-dropdown-content">
+  
             <a href="../Contacts/IndianapolisOffice.html">Indianapolis Office</a>
             <a href="../Contacts/SecureContactForm.html">Secure Contact Form</a>
             <a href="../Contacts/Referal.html">Refer a Friend</a>
-          </div></li>    </ul>
-        <button id="menu-btn">&#9776;</button>
-    
-        <div id="mobile-menu">
-          <button id="close-btn">&times;</button>
-          <a href="../index.html">Home</a>
-          <div class="mobile-dropdown outer-dropdown">
-            <a href="#" class="dropdown-toggle">Insurance Services <span class="arrow">&#9660;</span></a>
-            <div class="mobile-dropdown-content">
-              <div class="mobile-dropdown inner-dropdown">
-                <a href="#" class="dropdown-toggle">Auto, Home, and Personal Insurance
-                  <span class="arrow1">&#9660;</span></a>
-                <div class="mobile-dropdown-content">
-                  <a href="#">Auto Insurance</a>
-                  <a href="#">Homeowners Insurance</a>
-                  <a href="#">Renters Insurance</a>
-                  <a href="#">Motorcycle Insurance</a>
-                  <a href="#">Boat & Marine Insurance</a>
-                  <a href="#">View All Personal</a>
-                </div>
-              </div>
-              <div class="mobile-dropdown inner-dropdown">
-                <a href="./index.html" class="dropdown-toggle">Business Insurance
-                  <span class="arrow1">&#9660;</span></a>
-                <div class="mobile-dropdown-content">
-                  <a href="./BusinessOwnerrsPackage.html">Business Owners Package Insurance</a>
-                  <a href="../BusinessInsurance/CommercialAutoInsurance.html">Commercial Auto Insurance</a>
-                  <a href="./CommercialPropery.html">Commercial Property Insurance</a>
-                  <a href="./GeneralLiabilityInsurance.html">General Liablity Insurance</a>
-                  <a href="./Long-HaulTrucking.html">Long-Haul Trucking Insurance</a>
-                  <a href="./WorkersCompnesation.html">Workers Compensation Insurance</a>
-    
-                  <a href="./index.html">View All Business</a>
-                </div>
-              </div>
-              <div class="mobile-dropdown inner-dropdown">
-                <a href="#" class="dropdown-toggle">Life Insurance
-                  <span class="arrow1">&#9660;</span></a>
-                <div class="mobile-dropdown-content">
-                  <a href="#">Fixed Annuities</a>
-                  <a href="#">Final Expense Insurance</a>
-                  <a href="#">Individual Life Insurance</a>
-    
-                  <a href="#">View All Life</a>
-                </div>
-              </div> <a href="#">Medicare Supplements</a>
-            </div>
-          </div>
-    
-          <div class="mobile-dropdown outer-dropdown">
-            <a href="#" class="dropdown-toggle">Aboutus <span class="arrow">&#9660;</span></a>
-            <div class="mobile-dropdown-content">
-    
-              <a href="../AboutUS/Review.html">Customer Reviews</a>
-              <a href="../AboutUS/InsuranceCompanies.html">Insurance Companies</a>
-              <a href="../AboutUS/Blog.html">Insurance Blogs</a>
-    
-            </div>
-          </div>
-          <div class="mobile-dropdown outer-dropdown">
-            <a href="#" class="dropdown-toggle">Support<span class="arrow">&#9660;</span></a>
-            <div class="mobile-dropdown-content">
-    
-              <a href="#">Online Billings & Payments</a>
-              <a href="#">File a Claim</a>
-              <a href="#">AutoId card Request</a>
-              <a href="#">Certificate of Insurance Request</a>
-              <a href="#">Policy Change Request</a>
-              <a href="#">Annual Insurance Checklist</a>
-              <a href="#">Insurance Resources</a>
-    
-            </div>
-          </div>
-          <div class="mobile-dropdown outer-dropdown">
-            <a href="#" class="dropdown-toggle">Contact <span class="arrow">&#9660;</span></a>
-            <div class="mobile-dropdown-content">
-    
-              <a href="../Contacts/IndianapolisOffice.html">Indianapolis Office</a>
-              <a href="../Contacts/SecureContactForm.html">Secure Contact Form</a>
-              <a href="../Contacts/Referal.html">Refer a Friend</a>
-    
-            </div>
+  
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
       <div class="call-button">
         <a style="text-decoration: none; color: white;" href="tel: (317) 434-3333">
         <i class="fas fa-phone"></i>
@@ -695,13 +169,19 @@ color: #aaa;
     <!-- Top Section -->
     <div class="top-section"data-aos="fade-right" data-aos-delay="500" data-aos-duration="1500">
       <div class="image-container">
-        <img src="your-image.jpg" alt="Insurance Services">
+        <img src="../assets/business.jpg" alt="Insurance Services">
       </div>
       <div class="content">
-        <h1>Comprehensive Insurance Solutions</h1>
+        <h1>Business Insurance</h1>
         <p>
-          Explore our wide range of insurance services designed to protect what matters most to you. From personal to
-          commercial coverage, we have the right solutions tailored to your needs.
+          Two Businessmen Stand Beside Each Other in Front of Their Company's Products With Their Arms Crossed
+          As a business owner, you have enough on your mind without having to worry about your insurance needs. You want to have the confidence that the business you've built is covered by a company that understands your business insurance needs.
+          <br><br>
+          Commercial business insurance provides wide-ranging protection for businesses and their subsidiaries under a single policy. There are various types of commercial business insurance that take care of property, liability and workers' compensation, to name a few. While property insurance covers damages to business property and products stored within the premises; liability insurance provides coverage for damages to third parties; and workers' compensation insurance covers injuries to employees.
+          <br><br>
+          Commercial business insurance is an important aspect of any business that cannot be ignored especially if the business premises are leased or rented and even otherwise. Whatever your commercial insurance needs, we can design a protection program that's right for you.
+          <br><br>
+          Continental Insurance Solutions Inc. provides the following types of business insurance protection:
         </p>
       </div>
     </div>
@@ -760,55 +240,55 @@ color: #aaa;
 </div>
      <!-- Footer -->
      <footer class="footer-section" data-aos="fade-down" data-aos-duration="1000">
-        <div class="footer-container">
-          <div class="footer-contact" data-aos="fade-up" data-aos-delay="400">
-            <h3>Contact Us</h3>
-            <ul>
-              
-              <li>Phone: <a href="tel: (317) 434-3333"> (317) 434-3333</a></li>
-              <li>Continental Insurance Solutions Inc.
-                5324 Elmwood Ave
-                Indianapolis, Indiana 46203</li>
-                <li>Mon-Fri: 9:00am-5:00pm
-                  Sat-Sun: Closed</li>
-            </ul>
-          </div>
-          <div class="footer-links" data-aos="fade-up" data-aos-delay="300">
-            <h3>Insurance</h3>
-            <ul>
-              <li><a href="../">Auto, Home, Personal Insurance</a></li>
-              <li><a href="../aboutus/">Business Insurance</a></li>
-              <li><a href="../services/">Life Insurance</a></li>
-              <li><a href="../academy/">Medicare Supplements</a></li>
-            </ul>
-          </div>
-          <div class="footer-links" data-aos="fade-up" data-aos-delay="300">
-            <h3>About Us</h3>
-            <ul>
-              <li><a href="../AboutUS/Review.html">About Us</a></li>
-              <li><a href="../AboutUS/Review.html">Customer Reviews</a></li>
-              <li><a href="../AboutUS/InsuranceCompanies.html">Insurance Companies</a></li>
-              <li><a href="../AboutUS/Blog.html">Insurance Blog</a></li>
-            </ul>
-          </div>
-          <div class="footer-links" data-aos="fade-up" data-aos-delay="300">
-            <h3>Policy Service</h3>
-            <ul>
-              <li><a href="../">Support</a></li>
-              <li><a href="../aboutus/">Online Billings & Payments</a></li>
-              <li><a href="../services/">File a Claim</a></li>
-              <li><a href="../academy/">Policy Change Request</a></li>
-              <li><a href="../academy/">Anual Insurance Checklist</a></li>
-    
-            </ul>
-          </div>
-         
+      <div class="footer-container">
+        <div class="footer-contact" data-aos="fade-up" data-aos-delay="400">
+          <h3>Contact Us</h3>
+          <ul>
+            
+            <li>Phone: <a href="tel: (317) 434-3333"> (317) 434-3333</a></li>
+            <li>Continental Insurance Solutions Inc.
+              5324 Elmwood Ave
+              Indianapolis, Indiana 46203</li>
+              <li>Mon-Fri: 9:00am-5:00pm
+                Sat-Sun: Closed</li>
+          </ul>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; 
-            Continental Insurance Solutions Inc. provides commercial auto, auto, home, business, and life insurance, as well as annuities to all of Indiana, including Greenwood, Franklin, Avon, Fishers, Brownsburg, and Whiteland.</p>
+        <div class="footer-links" data-aos="fade-up" data-aos-delay="300">
+          <h3>Insurance</h3>
+          <ul>
+            <li><a href="../PersonalInsurance/index.html">Auto, Home, Personal Insurance</a></li>
+            <li><a href="../BusinessInsurance/index.html">Business Insurance</a></li>
+            <li><a href="../LifeInsurance/index.html">Life Insurance</a></li>
+            <li><a href="../MedicalSupplements/index.html">Medicare Supplements</a></li>
+          </ul>
         </div>
-      </footer>
+        <div class="footer-links" data-aos="fade-up" data-aos-delay="300">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="../AboutUS/Review.html">About Us</a></li>
+            <li><a href="../AboutUS/Review.html">Customer Reviews</a></li>
+            <li><a href="../AboutUS/InsuranceCompanies.html">Insurance Companies</a></li>
+            <li><a href="../AboutUS/Blog.html">Insurance Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-links" data-aos="fade-up" data-aos-delay="300">
+          <h3>Policy Service</h3>
+          <ul>
+            <li><a href="../Support/index.html">Support</a></li>
+            <li><a href="../Support/OnlineBillings&Payments.html">Online Billings & Payments</a></li>
+            <li><a href="../Support/FileClaim.html">File a Claim</a></li>
+            <li><a href="../Support/PolicyChange.html">Policy Change Request</a></li>
+            <li><a href="../Support/AnnualInsuranceCheck.html">Anual Insurance Checklist</a></li>
+  
+          </ul>
+        </div>
+       
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 
+          Continental Insurance Solutions Inc. provides commercial auto, auto, home, business, and life insurance, as well as annuities to all of Indiana, including Greenwood, Franklin, Avon, Fishers, Brownsburg, and Whiteland.</p>
+      </div>
+    </footer>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script> // Toggle mobile menu
     // Toggle mobile menu
